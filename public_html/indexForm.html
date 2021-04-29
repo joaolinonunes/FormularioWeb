@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+              integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    </head>
+    <body>
+        <header style="background-color: #20c997;">
+            <nav class="navbar navbar-light ">
+                <a class="navbar-brand" href="https://vtp.ifsp.edu.br/" target="_blank">
+                    <img src="logo_IFSP_2.jpg" alt="exibir_imagem" title="vtp.ifsp" width="20%" height="auto">
+                </a>
+            </nav>
+
+        </header>
+        <main class="container">
+            <br>
+            <h1 id='header'  class="text-center text-black"> Cadastro de Usuários</h1>
+            <br>
+            <form class="row g-3 needs-validation" novalidate action="index.php" method="post">
+                <div class="col-md-4">
+                    <label for="validationServer01" class="form-label">Primeiro nome</label>
+                    <input type="text" class="form-control" id="validationServer01" name="nome" placeholder="Nome" required>
+                    <div class="valid-feedback">
+                        Muito bom !
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label for="validationServer02" class="form-label">Sobrenome</label>
+                    <input type="text" class="form-control" id="validationServer02" name="sobrenome" placeholder="Sobrenome" required>
+                    <div class="valid-feedback">
+                        Muito bom !
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label for="validationServerUsername" class="form-label">Usuario</label>
+                    <div class="input-group has-validation">
+                        <span class="input-group-text" id="inputGroupPrepend3">@</span>
+                        <input type="text" class="form-control" id="validationServerUsername" name="usuario" placeholder="Usuario" aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback" required>
+                        <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                            Por favor informe um usuário.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="validationServer03" class="form-label">Cidade</label>
+                    <input type="text" class="form-control " id="validationServer03" name="cidade" placeholder="Cidade" required>
+                    <div id="validationServer03Feedback" class="invalid-feedback">
+                        Por favor informe a cidade.
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <label for="validationServer04" class="form-label">Estado</label>
+                    <select class="form-select " id="validationServer04" name="estado" required>
+                        <option selected disabled value="">Escolha...</option>
+                        <option>	 AL	</option>
+                        <option>	 AP	</option>
+                        <option>	 AM	</option>
+                        <option>	 BA	</option>
+                        <option>	 CE	</option>
+                        <option>	 DF	</option>
+                        <option>	 ES	</option>
+                        <option>	 GO	</option>
+                        <option>	 MA	</option>
+                        <option>	 MT	</option>
+                        <option>	 MS	</option>
+                        <option>	 MG	</option>
+                        <option>	 PA	</option>
+                        <option>	 PB	</option>
+                        <option>	 PR	</option>
+                        <option>	 PE	</option>
+                        <option>	 PI	</option>
+                        <option>	 RJ	</option>
+                        <option>	 RN	</option>
+                        <option>	 RS	</option>
+                        <option>	 RO	</option>
+                        <option>	 RR	</option>
+                        <option>	 SC	</option>
+                        <option>	 SP	</option>
+                        <option>	 SE	</option>
+                        <option>	 TO	</option>
+                    </select>
+                    <div id="validationServer04Feedback" class="invalid-feedback">
+                        Por favor escolha um estado.
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <label for="validationServer05" class="form-label">CEP</label>
+                    <input type="text" class="form-control" id="validationServer05" name="cep" placeholder="00000-000" required>
+                    <div class="valid-feedback">
+                        Ok!
+                    </div>
+                    <div class="invalid-feedback">
+                        Por favor informe um CEP.
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck" name="checkbox" required>
+                        <label class="form-check-label" for="invalidCheck">
+                            Concordo com os termos e condições
+                        </label>
+                        <div class="invalid-feedback">
+                            você precisa concordar antes de enviar.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <button class="btn btn-primary" type="submit">Enviar</button>
+                    <button class="btn btn-primary" type="reset">Cancelar</button>
+                </div>
+            </form>
+
+            <script>
+                // Exemplo de JavaScript inicial para desativar envios de formulário, se houver campos inválidos.
+                (function () {
+                    'use strict';
+                    // Pega todos os formulários que desejamos aplicar o estilo do Bootstrap
+                    var forms = document.querySelectorAll('.needs-validation');
+                    // Impede o envio imediato do formulário
+                    Array.prototype.slice.call(forms)
+                            .forEach(function (form) {
+                                form.addEventListener('submit', function (event) {
+                                    if (!form.checkValidity()) {
+                                        event.preventDefault();
+                                        event.stopPropagation();
+                                    }
+                                    form.classList.add('was-validated');
+                                }, false);
+                            });
+                })();
+
+            </script>    
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+        </main>  
+    </body>
+</html>
