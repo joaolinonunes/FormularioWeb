@@ -25,12 +25,16 @@ and open the template in the editor.
             <br>
             <h1 id='header'  class="text-center text-black"> Cadastro de Usuários</h1>
             <br>
-            <form class="row g-3 needs-validation" novalidate action="index.php" method="post">
+            <form id="f" class="row g-3 needs-validation bg-dark text-light" novalidate action="index.php" method="post">
+
                 <div class="col-md-4">
                     <label for="validationServer01" class="form-label">Primeiro nome</label>
                     <input type="text" class="form-control" id="validationServer01" name="nome" placeholder="Nome" required>
                     <div class="valid-feedback">
                         Muito bom !
+                    </div>
+                    <div class="invalid-feedback">
+                        Por favor informe o PRIMEIRO NOME.
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -39,67 +43,77 @@ and open the template in the editor.
                     <div class="valid-feedback">
                         Muito bom !
                     </div>
+                    <div class="invalid-feedback">
+                        Por favor informe O SOBRENOME.
+                    </div>
                 </div>
+
+                <div class="col-md-3">
+                    <label for="validationServer05" class="form-label">CPF</label>
+                    <input type="text" class="form-control" id="validationServerCPF" name="cpf" maxlength="14" pattern="[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}" placeholder="xxx.xxx.xxx-xx" required>
+                    <div class="valid-feedback">
+                        Ok!
+                    </div>
+                    <div class="invalid-feedback">
+                        Por favor informe um CPF.
+                    </div>
+                </div>
+
                 <div class="col-md-4">
                     <label for="validationServerUsername" class="form-label">Usuario</label>
                     <div class="input-group has-validation">
                         <span class="input-group-text" id="inputGroupPrepend3">@</span>
                         <input type="text" class="form-control" id="validationServerUsername" name="usuario" placeholder="Usuario" aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback" required>
                         <div id="validationServerUsernameFeedback" class="invalid-feedback">
-                            Por favor informe um usuário.
+                            Por favor informe um USUARIO.
                         </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <label for="validationServer05" class="form-label">CEP</label>
+                    <input type="text" class="form-control" onblur="pesquisacep(this.value);" id="validationServer05" name="cep" maxlength="9" pattern="[0-9]{5}-[0-9]{3}" placeholder="00000-000" required>
+                    <div class="valid-feedback">
+                        Ok!
+                    </div>
+                    <div class="invalid-feedback">
+                        Por favor informe um CEP.
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label for="validationServer02" class="form-label">Rua</label>
+                    <input type="text" class="form-control" id="rua" name="rua" placeholder="Rua" required>
+                    <div class="valid-feedback">
+                        Muito bom !
+                    </div>
+                    <div class="invalid-feedback">
+                        Por favor informe a RUA.
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label for="validationServer02" class="form-label">Bairro</label>
+                    <input type="text" class="form-control" id="bairro" name="bairro" placeholder="Bairro" required>
+                    <div class="valid-feedback">
+                        Muito bom !
+                    </div>
+                    <div class="invalid-feedback">
+                        Por favor informe o BAIRRO.
                     </div>
                 </div>
                 <div class="col-md-6">
                     <label for="validationServer03" class="form-label">Cidade</label>
                     <input type="text" class="form-control " id="validationServer03" name="cidade" placeholder="Cidade" required>
                     <div id="validationServer03Feedback" class="invalid-feedback">
-                        Por favor informe a cidade.
+                        Por favor informe a CIDADE.
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <label for="validationServer04" class="form-label">Estado</label>
-                    <select class="form-select " id="validationServer04" name="estado" required>
-                        <option selected disabled value="">Escolha...</option>
-                        <option>	 AL	</option>
-                        <option>	 AP	</option>
-                        <option>	 AM	</option>
-                        <option>	 BA	</option>
-                        <option>	 CE	</option>
-                        <option>	 DF	</option>
-                        <option>	 ES	</option>
-                        <option>	 GO	</option>
-                        <option>	 MA	</option>
-                        <option>	 MT	</option>
-                        <option>	 MS	</option>
-                        <option>	 MG	</option>
-                        <option>	 PA	</option>
-                        <option>	 PB	</option>
-                        <option>	 PR	</option>
-                        <option>	 PE	</option>
-                        <option>	 PI	</option>
-                        <option>	 RJ	</option>
-                        <option>	 RN	</option>
-                        <option>	 RS	</option>
-                        <option>	 RO	</option>
-                        <option>	 RR	</option>
-                        <option>	 SC	</option>
-                        <option>	 SP	</option>
-                        <option>	 SE	</option>
-                        <option>	 TO	</option>
-                    </select>
-                    <div id="validationServer04Feedback" class="invalid-feedback">
-                        Por favor escolha um estado.
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <label for="validationServer05" class="form-label">CEP</label>
-                    <input type="text" class="form-control" id="validationServer05" name="cep" placeholder="00000-000" required>
+                    <label for="uf" class="form-label">Estado..</label>
+                    <input type="text" class="form-control" id="uf" name="uf" placeholder="uf" required>
                     <div class="valid-feedback">
-                        Ok!
+                        Ok !
                     </div>
                     <div class="invalid-feedback">
-                        Por favor informe um CEP.
+                        Por favor informe o ESTADO.
                     </div>
                 </div>
                 <div class="col-12">
@@ -138,6 +152,205 @@ and open the template in the editor.
                             });
                 })();
 
+                window.onload = function () { // FUNCAO QUE É ACIONADO AO CARREGAR A PAGINA ( WINDOW.ONLOAD )
+
+                    id('validationServerCPF').onkeyup = function () {
+                        mascara(this, mcpf);
+                    };
+
+                    id('validationServer05').onkeyup = function () {
+                        mascara(this, mcep);
+                    };
+                    id('txtCEL').onkeyup = function () {
+                        mascara(this, mtel);
+                    };
+                };
+                //https://pt.stackoverflow.com/questions/53275/m%c3%a1scaras-para-telefone-e-cpf-em-textfield
+                function mascara(objeto, funcao) {
+                    v_obj = objeto;
+                    v_fun = funcao;
+                    setTimeout("execmascara()", 1);
+                }
+
+                function execmascara() {
+                    v_obj.value = v_fun(v_obj.value);
+                }
+
+                function id(objeto) {
+                    return document.getElementById(objeto);
+                }
+
+                function mtel(v) { //MASCARA PARA TELEFONE
+
+                    v = v.replace(/\D/g, "");             //Remove tudo o que não é dígito
+                    v = v.replace(/^(\d{2})(\d)/g, "($1) $2"); //Coloca parênteses em volta dos dois primeiros dígitos
+                    v = v.replace(/(\d)(\d{4})$/, "$1-$2");    //Coloca hífen entre o quarto e o quinto dígitos
+                    return v;
+                }
+
+
+                function mcpf(v) {  //MASCARA PARA CPF
+
+                    v = v.replace(/\D/g, "");                   //Remove tudo o que não é dígito
+                    v = v.replace(/(\d{3})(\d)/, "$1.$2");      //Coloca um ponto entre o terceiro e o quarto dígitos
+                    v = v.replace(/(\d{3})(\d)/, "$1.$2");      //Coloca um ponto entre o terceiro e o quarto dígitos
+                    //de novo (para o segundo bloco de números)
+                    v = v.replace(/(\d{3})(\d{1,2})$/, "$1-$2");//Coloca um hífen entre o terceiro e o quarto dígitos
+                    return v;
+                }
+
+                function mcnpj(v) {  //MASCARA PARA CNPJ
+                    v = v.replace(/\D/g, "");                   //Remove tudo o que não é dígito	
+                    v = v.replace(/(\d{2})(\d)/, "$1.$2");
+                    v = v.replace(/(\d{3})(\d)/, "$1.$2");
+                    v = v.replace(/(\d{3})(\d)/, "$1/$2");
+                    v = v.replace(/(\d)(\d{2})$/, "$1-$2");    //Coloca o . antes dos últimos 3 dígitos, e antes do verificador 
+                    return v;
+                }
+
+                function mie(v) {  //MASCARA PARA CNPJ
+                    v = v.replace(/\D/g, "");                  //Remove tudo o que não é dígito      	 
+                    v = v.replace(/(\d{3})(\d)/, "$1.$2");
+                    v = v.replace(/(\d{3})(\d)/, "$1.$2");
+                    v = v.replace(/(\d{3})(\d)/, "$1.$2");
+                    return v;
+                }
+
+
+                function mrg(v) {  //MASCARA PARA RG
+
+                    //  v=v.replace( /\s/g, '' );                  //Remove tudo o que não é dígito
+                    //	v=v.replace(/(\d)(\d{7})$/,"$1.$2");   	 //Coloca o . antes dos últimos 3 dígitos, e antes do verificador
+                    //  v=v.replace(/(\d)(\d{4})$/,"$1.$2");    //Coloca o . antes dos últimos 3 dígitos, e antes do verificador
+                    //  v=v.replace(/(\d)(\d)$/,"$1-$2");       //Coloca o - antes do último dígito
+
+                    v = v.replace(/(\d{2})(\d)/, "$1.$2");       //Coloca um ponto entre o segundo e o terceiro dígitos
+                    v = v.replace(/(\d{3})(\d)/, "$1.$2");
+                    v = v.replace(/(\d{5})(\d)/, "$1.$2");
+                    v = v.replace(/(\d{9})(\d)/, "$1-$2");
+                    return v;
+                }
+
+                function mcep(v) {  //MASCARA PARA CEP
+                    v = v.replace(/\D/g, "");                      //Remove tudo o que não é dígito
+                    v = v.replace(/^(\d{5})(\d)/, "$1-$2");        //Esse é tão fácil que não merece explicações
+                    return v;
+                }
+
+                function mcartao(v) { //MASCARA PARA CARTAO
+
+                    v = v.replace(/\D/g, "");                    //Remove tudo o que não é dígito
+                    v = v.replace(/(\d{4})(\d)/, "$1.$2");       //Coloca um ponto entre o terceiro e o quarto dígitos
+                    v = v.replace(/(\d{4})(\d)/, "$1.$2");       //Coloca um ponto entre o terceiro e o quarto dígitos
+                    v = v.replace(/(\d{4})(\d)/, "$1.$2");       //Coloca um ponto entre o terceiro e o quarto dígitos
+                    v = v.replace(/(\d{4})(\d)/, "$1.$2");       //Coloca um ponto entre o terceiro e o quarto dígitos
+                    return v;
+                }
+
+                function mdata(v) { // MASCARA PARA DATA 
+
+                    v = v.replace(/\D/g, "");                    //Remove tudo o que não é dígito
+                    v = v.replace(/(\d{2})(\d)/, "$1/$2");
+                    v = v.replace(/(\d{2})(\d)/, "$1/$2");
+                    return v;
+                }
+
+                function mvalor(v) {  //MASCARA PARA VALOR EM $$
+
+                    v = v.replace(/\D/g, "");//Remove tudo o que não é dígito
+                    v = v.replace(/(\d)(\d{8})$/, "$1.$2");//coloca o ponto dos milhões
+                    v = v.replace(/(\d)(\d{5})$/, "$1.$2");//coloca o ponto dos milhares
+
+                    v = v.replace(/(\d)(\d{2})$/, "$1,$2");//coloca a virgula antes dos 2 últimos dígitos
+                    return v;
+                }
+
+                function mvalor(v) {  //MASCARA PARA VALOR EM $$
+
+                    v = v.replace(/\D/g, "");//Remove tudo o que não é dígito
+                    v = v.replace(/(\d)(\d{8})$/, "$1.$2");//coloca o ponto dos milhões
+                    v = v.replace(/(\d)(\d{5})$/, "$1.$2");//coloca o ponto dos milhares
+
+                    v = v.replace(/(\d)(\d{2})$/, "$1,$2");//coloca a virgula antes dos 2 últimos dígitos
+                    return v;
+                }
+
+                function memail(v) {
+
+                    v = v.replace(/\s/g, '');
+                    return v;
+                }
+
+                //via cep
+
+                function limpa_formulário_cep() {
+                    //Limpa valores do formulário de cep.
+                    document.getElementById('rua').value = ("");
+                    document.getElementById('bairro').value = ("");
+                    document.getElementById('validationServer03').value = ("");
+                    document.getElementById('uf').value = ("");
+                   // document.getElementById('ibge').value = ("");
+                }
+
+                function meu_callback(conteudo) {
+                    if (!("erro" in conteudo)) {
+                        //Atualiza os campos com os valores.
+                        document.getElementById('rua').value = (conteudo.logradouro);
+                        document.getElementById('bairro').value = (conteudo.bairro);
+                        document.getElementById('validationServer03').value = (conteudo.localidade);
+                        document.getElementById('uf').value = (conteudo.uf);
+                        //document.getElementById('ibge').value=(conteudo.ibge);
+                    } //end if.
+                    else {
+                        //CEP não Encontrado.
+                        limpa_formulário_cep();
+                        alert("CEP não encontrado.");
+                    }
+                }
+
+                function pesquisacep(valor) {
+
+                    //Nova variável "cep" somente com dígitos.
+                    var cep = valor.replace(/\D/g, '');
+
+                    //Verifica se campo cep possui valor informado.
+                    if (cep != "") {
+
+                        //Expressão regular para validar o CEP.
+                        var validacep = /^[0-9]{8}$/;
+
+                        //Valida o formato do CEP.
+                        if (validacep.test(cep)) {
+
+                            //Preenche os campos com "..." enquanto consulta webservice.
+                            document.getElementById('rua').value = "Carregando...";
+                            document.getElementById('bairro').value = "Carregando...";
+                            document.getElementById('validationServer03').value = "Carregando...";
+                            document.getElementById('uf').value = "Carregando...";
+                            //  document.getElementById('ibge').value="...";
+
+                            //Cria um elemento javascript.
+                            var script = document.createElement('script');
+
+                            //Sincroniza com o callback.
+                            script.src = 'https://viacep.com.br/ws/' + cep + '/json/?callback=meu_callback';
+
+                            //Insere script no documento e carrega o conteúdo.
+                            document.body.appendChild(script);
+
+                        } //end if.
+                        else {
+                            //cep é inválido.
+                            limpa_formulário_cep();
+                            alert("Formato de CEP inválido.");
+                        }
+                    } //end if.
+                    else {
+                        //cep sem valor, limpa formulário.
+                        limpa_formulário_cep();
+                    }
+                }
+                ;
             </script>    
             <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
